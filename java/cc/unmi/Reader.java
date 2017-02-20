@@ -12,7 +12,6 @@ public class Reader {
     public static void main(String[] args) throws IOException {
         DatumReader<User> userDatumReader = new SpecificDatumReader<>();
         DataFileReader<User> dataFileReader = new DataFileReader<>(new File("../user-by-python.avro"), userDatumReader);
-
         dataFileReader.forEach(System.out::println);
     }
 }

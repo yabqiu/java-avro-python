@@ -27,6 +27,13 @@ public class Writer {
         dataFileWriter.setCodec(CodecFactory.snappyCodec());
         dataFileWriter.create(user.getSchema(), new File("../user-by-java.avro"));
         dataFileWriter.append(user);
+
+        user.setName("Unmi");
+        user.getProducts().forEach(product -> {
+            product.setId(product.getId() + 2);
+            product.setName("Book" + (Integer.parseInt(product.getName().toString().substring(4)) + 2));
+        });
+        dataFileWriter.append(user);
         dataFileWriter.close();
     }
 }
