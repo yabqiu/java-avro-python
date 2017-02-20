@@ -1,0 +1,21 @@
+{
+  "type": "record", 
+  "namespace": "cc.unmi.data", 
+  "name": "User", 
+  "fields": [
+    { "name": "name", "type": "string" }, 
+    { "name": "address", "type": [ "string", "null" ]}, 
+    { "name": "products", "type": { "type": "array",
+        "items": {
+          "type": "record", 
+          "namespace": "cc.unmi.data", 
+          "name": "Product", 
+          "fields": [
+            { "name": "id", "type": "int" }, 
+            { "name": "name", "type": ["string", "null" ]}
+          ]
+        }
+      }
+    }
+  ]
+}
